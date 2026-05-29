@@ -1,4 +1,3 @@
-
 import ProvinceRepository from "../repositories/province-repository.js"
 
 export default class ProvinceService {
@@ -9,26 +8,31 @@ export default class ProvinceService {
     }
 
     getAllAsync = async () => {
-        return await this.ProvinceRepository.getAllAsync();
+        return await this.repository.getAllAsync();
     }
 
     getByIdAsync = async (id) => {
-        return await this.ProvinceRepository.getByIdAsync(id);
+        return await this.repository.getByIdAsync(id);
     }
 
     createAsync = async (entity) => {
-        console.log(`CursosService.createAsync(${JSON.stringify(entity)})`);
-       return await this.ProvinceRepository.createAsync(entity);
+
+        console.log(`ProvinceService.createAsync(${JSON.stringify(entity)})`);
+
+        return await this.repository.createAsync(entity);
     }
 
     updateAsync = async (entity) => {
-        console.log(`CursosService.updateAsync(${JSON.stringify(entity)})`);
-         return await this.ProvinceRepository.updateAsync(entity);
-    }
-    
-    deleteByIdAsync = async (id) => {
-        console.log(`CursosService.deleteByIdAsync(${id})`);
-        return await this.ProvinceRepository.deleteByIdAsync(id);
+
+        console.log(`ProvinceService.updateAsync(${JSON.stringify(entity)})`);
+
+        return await this.repository.updateAsync(entity);
     }
 
+    deleteByIdAsync = async (id) => {
+
+        console.log(`ProvinceService.deleteByIdAsync(${id})`);
+
+        return await this.repository.deleteByIdAsync(id);
+    }
 }

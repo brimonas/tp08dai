@@ -1,4 +1,4 @@
-import Db from './db-pg.js'
+import Db from '../configs/db-config.js'
 
 export default class ProvinceRepository {
 

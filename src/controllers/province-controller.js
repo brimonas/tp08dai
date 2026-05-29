@@ -6,10 +6,27 @@ const router = Router();
 const currentService = new ProvinceService();
 
 router.get('', async (req, res) => {
-     try {
+
+    try {
+
+        const returnEntity =
+            await currentService.getAllAsync();
+
+        res.status(200).json(returnEntity);
+
+    } catch (error) {
+
+        res.status(500).send(`Error: ${error.message}`);
+    }
+});
+router.get('/:id', async (req, res) => {
+
+    try {
+
         let id = req.params.id;
 
-        const returnEntity = await currentService.getByIdAsync(id);
+        const returnEntity =
+            await currentService.getByIdAsync(id);
 
         if (returnEntity != null) {
 
@@ -17,7 +34,9 @@ router.get('', async (req, res) => {
 
         } else {
 
-            res.status(404).send(`No existe provincia con id ${id}`);
+            res.status(404).send(
+                `No existe provincia con id ${id}`
+            );
         }
 
     } catch (error) {
@@ -47,7 +66,7 @@ router.post('', async (req, res) => {
         res.status(400).send(`Error: ${error.message}`);
     }
 });
-router.put('', async (req, res) => {
+router.put('/:id', async (req, res) => {
 
     try {
     let id = parseInt(req.params.id);

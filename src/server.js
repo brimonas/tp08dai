@@ -3,17 +3,15 @@ import express 	from "express";	// hacer npm i express
 import cors 	from "cors";	// hacer npm i cors
 
 // Controllers
-import AlumnosController    from "./controllers/province-controller.js"
+import ProvinceController from "./controllers/province-controller.js"
+const app = express();
 
-const app  = express();
+app.use("/api/province", ProvinceController);
 const port = process.env.PORT || 3000;  // si no esta definido en el archivo .env uso el 3000.
 
 // Agrego los Middlewares
 app.use(cors());         // Middleware de CORS
 app.use(express.json()); // Middleware para parsear y comprender JSON
-
-// Endpoints (todos los Routers)
-app.use("/api/province", province-controller.js);
 
 
 //
