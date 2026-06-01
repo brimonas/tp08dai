@@ -1,22 +1,14 @@
-import Db from '../configs/db-config.js'
+import Db from '../configs/db-config.js';
 
 export default class ProvinceRepository {
-
     constructor() {
-
-        console.log('ProvinceRepository.constructor()')
-
-        this.db = new Db()
+        this.db = new Db();
     }
 
     getAllAsync = async () => {
-
-        console.log('ProvinceRepository.getAllAsync()')
-
-        const sql = `SELECT * FROM provincias`
-
-        return await this.db.queryAll(sql)
+        return await this.db.queryAll('SELECT * FROM provincias');
     }
+
 
     getByIdAsync = async (id) => {
 

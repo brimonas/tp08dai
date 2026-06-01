@@ -8,25 +8,25 @@ export default class ProvinceService {
     }
 
     getAllAsync = async () => {
-       const returnArray = await this.CursosRepository.getAllAsync();
+       const returnArray = await this.repository.getAllAsync();
         return returnArray;
     }
 
     getByIdAsync = async (id) => {
-        const returnEntity = await this.CursosRepository.getByIdAsync(id);
+        const returnEntity = await this.repository.getByIdAsync(id);
         return returnEntity;
     }
 
     createAsync = async (entity) => {
 
         console.log(`CursosService.getByIdAsync(${id})`);
-        const returnEntity = await this.CursosRepository.getByIdAsync(id);
+        const returnEntity = await this.repository.getByIdAsync(id);
         return returnEntity;
     }
 
     updateAsync = async (entity) => {
 
-        const rowsAffected = await this.CursosRepository.updateAsync(entity);
+        const rowsAffected = await this.repository.updateAsync(entity);
         return rowsAffected;
     }
 

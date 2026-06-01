@@ -1,7 +1,6 @@
 
 import {Router} from 'express';
 import ProvinceService from './../services/province-service.js' 
-import { StatusCodes } from 'http-status-codes';
 
 const router = Router();
 const currentService = new ProvinceService();
