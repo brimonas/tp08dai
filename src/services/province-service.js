@@ -8,31 +8,31 @@ export default class ProvinceService {
     }
 
     getAllAsync = async () => {
-        return await this.repository.getAllAsync();
+       const returnArray = await this.CursosRepository.getAllAsync();
+        return returnArray;
     }
 
     getByIdAsync = async (id) => {
-        return await this.repository.getByIdAsync(id);
+        const returnEntity = await this.CursosRepository.getByIdAsync(id);
+        return returnEntity;
     }
 
     createAsync = async (entity) => {
 
-        console.log(`ProvinceService.createAsync(${JSON.stringify(entity)})`);
-
-        return await this.repository.createAsync(entity);
+        console.log(`CursosService.getByIdAsync(${id})`);
+        const returnEntity = await this.CursosRepository.getByIdAsync(id);
+        return returnEntity;
     }
 
     updateAsync = async (entity) => {
 
-        console.log(`ProvinceService.updateAsync(${JSON.stringify(entity)})`);
-
-        return await this.repository.updateAsync(entity);
+        const rowsAffected = await this.CursosRepository.updateAsync(entity);
+        return rowsAffected;
     }
 
     deleteByIdAsync = async (id) => {
 
-        console.log(`ProvinceService.deleteByIdAsync(${id})`);
-
-        return await this.repository.deleteByIdAsync(id);
+        return await this.repository.deleteByIdAsync(id); const rowsAffected = await this.CursosRepository.deleteByIdAsync(id);
+        return rowsAffected;
     }
 }
