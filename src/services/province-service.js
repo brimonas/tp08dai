@@ -18,9 +18,12 @@ export default class ProvinceService {
 
     createAsync = async (entity) => {
              const repo = new ProvinceRepository()
-        console.log(`ProvinceRepository.getByIdAsync(${id})`);
-        const returnEntity = await repo.getByIdAsync(id);
-        return returnEntity;
+        console.log(`ProvinceRepository.createAsync (${
+            JSON.stringify(entity)
+        })`);
+        const rowsAffected = await repo.createAsync
+        (entity);
+        return rowsAffected;
     }
 
     updateAsync = async (entity) => {
