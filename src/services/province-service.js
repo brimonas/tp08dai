@@ -34,9 +34,8 @@ export default class ProvinceService {
     }
 
     deleteByIdAsync = async (id) => {
-         const repo = new ProvinceRepository()
-            console.log(`ProvinceRepository.deleteByIdAsync(${id})` );
-        return await repo.deleteByIdAsync(id); const rowsAffected = await this.CursosRepository.deleteByIdAsync(id);
-        return rowsAffected;
-    }
+    const repo = new ProvinceRepository();
+    console.log(`ProvinceRepository.deleteByIdAsync(${id})`);
+    return await repo.deleteByIdAsync(id);
+}
 }

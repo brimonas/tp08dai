@@ -50,17 +50,14 @@ export default class ProvinceRepository {
             await client.connect();
 
             const sql = `
-                INSERT INTO provincias
-                (name, full_name, latitude, longitude, display_order)
-                VALUES ($1, $2, $3, $4, $5)
+                INSERT INTO provincias (nombre, orden, activo)
+                VALUES ($1, $2, $3)
             `;
 
             const values = [
-                entity.name,
-                entity.full_name,
-                entity.latitude,
-                entity.longitude,
-                entity.display_order
+                entity.nombre,
+            entity.orden,
+            entity.activo
             ];
 
             const result = await client.query(sql, values);
@@ -85,21 +82,17 @@ export default class ProvinceRepository {
             const sql = `
                 UPDATE provincias
                 SET
-                    name = $2,
-                    full_name = $3,
-                    latitude = $4,
-                    longitude = $5,
-                    display_order = $6
+                    nombre = $2,
+                    orden = $3,
+                    activo = $4
                 WHERE id = $1
             `;
 
             const values = [
                 entity.id,
-                entity.name,
-                entity.full_name,
-                entity.latitude,
-                entity.longitude,
-                entity.display_order
+                entity.nombre,
+                entity.orden,
+                entity.activo
             ];
 
             const result = await client.query(sql, values);

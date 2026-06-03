@@ -73,9 +73,10 @@ router.put('/:id', async (req, res) => {
         let entity = req.body;
 
         if (entity.id && parseInt(entity.id) !== id) {
-            return res.status(404).send(`no existe provincia con id (${entity.id}).`);
+            return res.status(404).send(`no existe la provincia`);
         }
- const rowsAffected =
+        entity.id = id;
+        const rowsAffected =
             await currentService.updateAsync(entity);
 
         res.status(201).json(rowsAffected);
