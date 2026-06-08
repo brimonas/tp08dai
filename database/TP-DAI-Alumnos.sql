@@ -98,7 +98,9 @@ INSERT INTO public.beneficios VALUES (13, 'Belleza 15%', 13, 'CosmÃ©tica', 15,
 INSERT INTO public.beneficios VALUES (14, 'Bicis 20%', 14, 'Deportes', 20, B'1');
 INSERT INTO public.beneficios VALUES (15, 'MÃºsica 10%', 15, 'Instrumentos', 10, B'1');
 
-
+CREATE SEQUENCE IF NOT EXISTS provincias_id_seq;
+ALTER TABLE provincias ALTER COLUMN id SET DEFAULT nextval('provincias_id_seq');
+SELECT setval('provincias_id_seq', (SELECT MAX(id) FROM provincias));
 --
 -- TOC entry 4811 (class 0 OID 16402)
 -- Dependencies: 216

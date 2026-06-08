@@ -57,7 +57,7 @@ export default class ProvinceRepository {
             const values = [
                 entity.nombre,
             entity.orden,
-            entity.activo
+            entity.activo == 1 ? '1' : '0' 
             ];
 
             const result = await client.query(sql, values);
@@ -92,7 +92,7 @@ export default class ProvinceRepository {
                 entity.id,
                 entity.nombre,
                 entity.orden,
-                entity.activo
+                entity.activo == 1 ? '1' : '0' 
             ];
 
             const result = await client.query(sql, values);
