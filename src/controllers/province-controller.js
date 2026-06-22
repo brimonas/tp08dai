@@ -113,3 +113,24 @@ router.delete('/:id', async (req, res) => {
 });
 
 export default router;
+
+
+/*
+localhost:3000/provinces
+localhost:3000/provinces/3
+localhost:3000/provinces
+{
+  "nombre":"Salta",
+  "orden":10,
+  "activo":1
+}
+
+
+
+localhost:3000 /provinces/5
+{
+   "nombre":"Mendoza",
+   "orden":2,
+   "activo":1
+}
+*/
