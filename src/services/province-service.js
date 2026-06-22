@@ -18,6 +18,11 @@ export default class ProvinceService {
 
     createAsync = async (entity) => {
              const repo = new ProvinceRepository()
+        if(entity.orden < 1){
+   throw new Error(
+      "El orden debe ser positivo"
+   );
+}
         console.log(`ProvinceRepository.createAsync (${
             JSON.stringify(entity)
         })`);
