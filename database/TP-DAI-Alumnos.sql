@@ -100,7 +100,7 @@ INSERT INTO public.beneficios VALUES (15, 'MÃºsica 10%', 15, 'Instrumentos', 1
 
 CREATE SEQUENCE IF NOT EXISTS provincias_id_seq;
 ALTER TABLE provincias ALTER COLUMN id SET DEFAULT nextval('provincias_id_seq');
-SELECT setval('provincias_id_seq', (SELECT MAX(id) FROM provincias));
+
 --
 -- TOC entry 4811 (class 0 OID 16402)
 -- Dependencies: 216
@@ -163,12 +163,8 @@ INSERT INTO public.provincias VALUES (7, 'Chaco', 7, B'1');
 INSERT INTO public.provincias VALUES (8, 'Corrientes', 8, B'1');
 INSERT INTO public.provincias VALUES (9, 'Entre RÃ­os', 9, B'1');
 INSERT INTO public.provincias VALUES (10, 'Misiones', 10, B'1');
-INSERT INTO public.provincias VALUES (11, 'NeuquÃ©n', 11, B'1');
-INSERT INTO public.provincias VALUES (12, 'RÃ­o Negro', 12, B'1');
-INSERT INTO public.provincias VALUES (13, 'San Juan', 13, B'1');
-INSERT INTO public.provincias VALUES (14, 'La Pampa', 14, B'1');
-INSERT INTO public.provincias VALUES (15, 'Formosa', 15, B'1');
 
+SELECT setval('provincias_id_seq', (SELECT MAX(id) FROM provincias));
 
 --
 -- TOC entry 4814 (class 0 OID 16413)
