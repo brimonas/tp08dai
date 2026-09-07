@@ -2,8 +2,8 @@ import swaggerAutogen from "swagger-autogen";
 
 const doc = {
   info: {
-    title: 'pg provincias',
-    description: 'Eaprendemos a usar swagger' ,
+    title: 'TP08.2 Provincias',
+    description: 'El siguiente proyecto lista una base de datos de provincias y presenta funcionalidads como eliminar, modificar, listar, etc.' ,
     version: '1.0.0',
   },
   host: 'localhost:3000',
@@ -24,7 +24,8 @@ const doc = {
 };
 
 const outputFile      = './swagger_output.json';
-const endpointsFiles  = ['./controllers/province-controller.js'];
+const endpointsFiles  = ['./src/controllers/province-controller.js'];
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
     console.log("Swagger generado correctamente");
 });
+
