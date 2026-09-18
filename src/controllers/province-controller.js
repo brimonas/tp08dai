@@ -7,8 +7,14 @@ import ProvinceService from './../services/province-service.js'
 const router = Router();
 const currentService = new ProvinceService();
 
-router.get('', async (req, res) => {
-
+router.get('/', async (req, res) => {
+  /*  
+      #swagger.summary = 'Obtiene la lista completa de alumnos'
+      #swagger.responses[200] = {
+        description: 'Lista de alumnos',
+        schema: { $ref: '#/definitions/Provincia' }
+      }
+  */
     try {
 
         const returnEntity =
@@ -29,6 +35,10 @@ router.get('/:id', async (req, res) => {
     required: true,
     type: 'integer'
 }
+       #swagger.responses[200] = {
+        description: 'Lista de provincias',
+        schema: { $ref: '#/definitions/Provincia' }
+      }
 */
     try {
 
@@ -53,25 +63,18 @@ router.get('/:id', async (req, res) => {
         res.status(500).send(`Error: ${error.message}`);
     }
 });
-router.post('', async (req, res) => {
+router.post('/', async (req, res) => {
 /*
 #swagger.summary = 'Crear una provincia'
 
-#swagger.requestBody = {
-    required: true,
-    content: {
-        "application/json": {
-            schema: {
-                type: "object",
-                properties: {
-                    nombre: {
-                        type: "string"
-                    }
-                }
-            }
-        }
-    }
-}
+ #swagger.parameters['body'] = {
+        in: 'body',
+        description: 'Datos de la provincia a crear',
+        required: true,
+        schema: { $ref: '#/definitions/ProvinciaInput' }
+      }
+      #swagger.responses[201] = { description: 'Provincia creado exitosamente' }
+      #swagger.responses[400] = { description: 'Datos inválidos' }
 */
     try {
 
@@ -103,21 +106,14 @@ router.put('/:id', async (req, res) => {
     type: 'integer'
 }
 
-#swagger.requestBody = {
-    required: true,
-    content: {
-        "application/json": {
-            schema: {
-                type: "object",
-                properties: {
-                    nombre: {
-                        type: "string"
-                    }
-                }
-            }
-        }
-    }
-}
+#swagger.parameters['body'] = {
+        in: 'body',
+        description: 'Nuevos datos del alumno',
+        required: true,
+        schema: { $ref: '#/definitions/ProvinciaInput' }
+      }
+      #swagger.responses[200] = { description: 'Provincia actualizado' }
+      #swagger.responses[404] = { description: 'Provincia no encontrado' }
 */
     try {
     let id = parseInt(req.params.id);

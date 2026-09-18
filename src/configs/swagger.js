@@ -7,6 +7,7 @@ const doc = {
     version: '1.0.0',
   },
   host: 'localhost:3000',
+  basePath: '/api/province',
   schemes: ['http'],
   definitions: {
     Provincia: {
@@ -15,7 +16,7 @@ const doc = {
       orden:   1,
       activo:  '1'
     },
-    AlumnoInput: {
+    ProvinciaInput: {
       $nombre:  'Buenos Aires',
       $orden:  1,
       $activo: '1'

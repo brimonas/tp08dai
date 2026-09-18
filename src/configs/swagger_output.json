@@ -1,30 +1,74 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "pg provincias",
-    "description": "Eaprendemos a usar swagger",
+    "title": "TP08.2 Provincias",
+    "description": "El siguiente proyecto lista una base de datos de provincias y presenta funcionalidads como eliminar, modificar, listar, etc.",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
-  "basePath": "/",
+  "basePath": "/api/province",
   "schemes": [
     "http"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "summary": "Obtiene la lista completa de alumnos",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Lista de alumnos",
+            "schema": {
+              "$ref": "#/definitions/Provincia"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear una provincia",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Datos de la provincia a crear",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProvinciaInput"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Provincia creado exitosamente"
+          },
+          "400": {
+            "description": "Datos inválidos"
+          }
+        }
+      }
+    },
     "/{id}": {
       "get": {
+        "summary": "Obtener provincia por ID",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Lista de provincias",
+            "schema": {
+              "$ref": "#/definitions/Provincia"
+            }
           },
           "404": {
             "description": "Not Found"
@@ -35,28 +79,29 @@
         }
       },
       "put": {
+        "summary": "Modificar una provincia",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer"
           },
           {
             "name": "body",
             "in": "body",
+            "description": "Nuevos datos del alumno",
+            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "example": "any"
-                }
-              }
+              "$ref": "#/definitions/ProvinciaInput"
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "Provincia actualizado"
+          },
           "201": {
             "description": "Created"
           },
@@ -64,18 +109,19 @@
             "description": "Bad Request"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Provincia no encontrado"
           }
         }
       },
       "delete": {
+        "summary": "Eliminar una provincia",
         "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -114,7 +160,7 @@
         }
       }
     },
-    "AlumnoInput": {
+    "ProvinciaInput": {
       "type": "object",
       "properties": {
         "nombre": {
